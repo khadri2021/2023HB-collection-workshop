@@ -1,0 +1,13 @@
+create table PHONE_PROVIDER(
+PP_ID int PRIMARY KEY,
+PP_NAME varchar(30)
+);
+create table SIM_NUMBERS(
+PP_ID int, 
+SIM_VALUES varchar(30),
+KEY (PP_ID),
+CONSTRAINT FOREIGN KEY(PP_ID) REFERENCES PHONE_PROVIDER(PP_ID)
+);
+
+select * from PHONE_PROVIDER;
+select * from SIM_NUMBERS;
