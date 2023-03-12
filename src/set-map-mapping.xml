@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.khadri.hibernate.list.map.entity.Country" table="country">
+		<id name="countryId" column="COUNTRY_ID" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="countryName" column="COUNTRY_NAME" type="string" />
+		<set name="rivers" table="rivers" >
+			<key column="COUNTRY_ID" />
+			<element column="RIVER_NAME" type="string" />
+		</set>
+		<map name="capitals" table="capitals">
+			<key column="COUNTRY_ID" />
+			<index column="STATE_NAME" type="string"/>
+			<element column="CAPITAL_NAME" type="string"/>
+		</map>
+	</class>
+</hibernate-mapping>
