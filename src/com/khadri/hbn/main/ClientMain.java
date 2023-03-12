@@ -6,67 +6,63 @@ import java.util.List;
 import java.util.Set;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import com.khadri.hbn.restaturant.Restaturant;
+import com.khadri.hbn.session.BasicOperations;
 
 public class ClientMain {
 	public static void main(String[] args) {
-		Configuration cfg = new Configuration();
-		cfg.configure();
-		SessionFactory factory = cfg.buildSessionFactory();
-		Session sess = factory.openSession();
+
+		Session sess = BasicOperations.getSession();
+
 		Transaction txn = sess.beginTransaction();
 
-		Set<String> st = new HashSet<>();
-		
-		st.add("BIRYANI'S");
-		st.add("FRIED RICE");
-		st.add("STATERRES");
-		st.add("SOFT DRINKS");
+		Set<String> set = new HashSet<>();
 
-		List<String> li = new ArrayList<>();
+		set.add("BIRYANI'S");
+		set.add("FRIED RICE");
+		set.add("STATERRES");
+		set.add("SOFT DRINKS");
 
-		li.add("CHICKEN BIRYANI");
-		li.add("GOBI FRIED RICE");
-		li.add("CHICKEN 65");
-		li.add("SPIRITE");
+		List<String> list = new ArrayList<>();
 
-		List<String> li1 = new ArrayList<>();
+		list.add("CHICKEN BIRYANI");
+		list.add("GOBI FRIED RICE");
+		list.add("CHICKEN 65");
+		list.add("SPIRITE");
 
-		li1.add("MUTTON BIRYANI");
-		li1.add("CHICKEN MANDHI");
-		li1.add("CHICKEN FRIED RICE");
-		li1.add("CHICKEN 555");
-		li1.add("PEPSI");
+		List<String> list1 = new ArrayList<>();
 
-		Set<String> st1 = new HashSet<>();
-		
-		st1.add("BIRYANI'S");
-		st1.add("MANDHI'S");
-		st1.add("FRIED RICE");
-		st1.add("STATERRES");
-		st1.add("SOFT DRINKS");
-		Restaturant rest = new Restaturant();
+		list1.add("MUTTON BIRYANI");
+		list1.add("CHICKEN MANDHI");
+		list1.add("CHICKEN FRIED RICE");
+		list1.add("CHICKEN 555");
+		list1.add("PEPSI");
 
-		rest.setrName("SRI KRISHNA GRAND");
-		rest.setMenu(st);
-		rest.setOrders(li);
+		Set<String> set1 = new HashSet<>();
 
-		Restaturant rest1 = new Restaturant();
+		set1.add("BIRYANI'S");
+		set1.add("MANDHI'S");
+		set1.add("FRIED RICE");
+		set1.add("STATERRES");
+		set1.add("SOFT DRINKS");
+		Restaturant restaturant = new Restaturant();
+		restaturant.setRestName("SRI KRISHNA GRAND");
+		restaturant.setMenu(set);
+		restaturant.setOrders(list);
 
-		rest1.setrName("SANNIDHI");
-		rest1.setMenu(st1);
-		rest1.setOrders(li1);
+		Restaturant restaturant1 = new Restaturant();
 
-		sess.save(rest);
-		sess.save(rest1);
+		restaturant1.setRestName("SANNDHI");
+		restaturant1.setMenu(set1);
+		restaturant1.setOrders(list1);
 
-		 txn.commit();
+		sess.save(restaturant);
+		sess.save(restaturant1);
+
+		txn.commit();
 		sess.close();
-		factory.close();
 
 	}
 

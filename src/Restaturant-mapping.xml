@@ -6,15 +6,15 @@
 <hibernate-mapping>
 	<class name="com.khadri.hbn.restaturant.Restaturant"
 		table="RESTATURANT">
-		<id name="rId" column="RESTATURANT_ID" type="int">
+		<id name="restId" column="RESTATURANT_ID" type="int">
 			<generator class="increment" />
 		</id>
-		<property name="rName" column="RESTATURANT_NAME"
+		<property name="restName" column="RESTATURANT_NAME"
 			type="string" />
 		<list name="orders" table="ORDERS">
 			<key column="RESTATURANT_ID" />
 			<list-index column="INDEX_TYPE" />
-			<element column="ORDERS_ITEMS" type="string" />
+			<element column="ORDER_ITEMS" type="string" />
 		</list>
 		<set name="menu" table="MENU">
 			<key column="RESTATURANT_ID" />

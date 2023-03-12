@@ -4,34 +4,41 @@ import java.util.List;
 import java.util.Set;
 
 public class Restaturant {
-	private String rName;
-	private int rId;
+	private String restName;
+	private int restId;
 	private List<String> orders;
 	private Set<String> menu;
-	public String getrName() {
-		return rName;
+
+	public String getRestName() {
+		return restName;
 	}
-	public void setrName(String rName) {
-		this.rName = rName;
+
+	public void setRestName(String restName) {
+		this.restName = restName;
 	}
-	public int getrId() {
-		return rId;
+
+	public int getRestId() {
+		return restId;
 	}
-	public void setrId(int rId) {
-		this.rId = rId;
+
+	public void setRestId(int restId) {
+		this.restId = restId;
 	}
+
 	public List<String> getOrders() {
 		return orders;
 	}
+
 	public void setOrders(List<String> orders) {
 		this.orders = orders;
 	}
+
 	public Set<String> getMenu() {
 		return menu;
 	}
+
 	public void setMenu(Set<String> menu) {
 		this.menu = menu;
 	}
-	
 
 }
