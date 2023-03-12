@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.khadri.hbn.restaturant.Restaturant"
+		table="RESTATURANT">
+		<id name="rId" column="RESTATURANT_ID" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="rName" column="RESTATURANT_NAME"
+			type="string" />
+		<list name="orders" table="ORDERS">
+			<key column="RESTATURANT_ID" />
+			<list-index column="INDEX_TYPE" />
+			<element column="ORDERS_ITEMS" type="string" />
+		</list>
+		<set name="menu" table="MENU">
+			<key column="RESTATURANT_ID" />
+			<element column="MENU_ITEMS" type="string" />
+		</set>
+
+	</class>
+
+</hibernate-mapping>
