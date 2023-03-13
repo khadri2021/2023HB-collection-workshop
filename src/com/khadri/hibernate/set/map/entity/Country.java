@@ -1,4 +1,4 @@
-package com.khadri.hibernate.list.map.entity;
+package com.khadri.hibernate.set.map.entity;
 
 import java.util.Map;
 import java.util.Set;

@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.khadri.hibernate.list.map.entity.Country" table="country">
+	<class name="com.khadri.hibernate.set.map.entity.Country" table="country">
 		<id name="countryId" column="COUNTRY_ID" type="int">
 			<generator class="increment" />
 		</id>
